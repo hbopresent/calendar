@@ -4,22 +4,45 @@
     <meta charset="utf-8" />
     <title>Calendar</title>
     <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
   </head>
   <body>
     <div class="calendar">
       <section class="main">
         <div class="mainDate">
-          <div class="mainDate__date"></div>
-          <div class="mainDate__monthAndYear"></div>
+          <div class="mainDate__date">
+            <div class="dateText number">18</div>
+            <div class="dateText day">Tuesday</div>
+          </div>
+          <div class="mainDate__monthAndYear">
+            <div class="dateText month">April</div>
+            <div class="dateText year">2017</div>
+          </div>
         </div>
         <div class="mainCalendar">
-          <div class="mainCalendar__week"></div>
-          <div class="mainCalendar__date"></div>
+          <div class="mainCalendar__week">
+            <ul class="weekList">
+              <li class="weekList__date">Sun</li>
+              <li class="weekList__date">Mon</li>
+              <li class="weekList__date">Tue</li>
+              <li class="weekList__date">Wed</li>
+              <li class="weekList__date">Thu</li>
+              <li class="weekList__date">Fri</li>
+              <li class="weekList__date">Sat</li>
+            </ul>
+          </div>
+          <div class="mainCalendar__date">
+            <div class="week firstWeek">
+
+            </div>
+            <div class="week secondWeek"></div>
+            <div class="week thirdWeek"></div>
+            <div class="week fourthWeek"></div>
+            <div class="week fifthWeek"></div>
+          </div>
         </div>
       </section>
-      <section class="detailedTasks">
-        
-      </section>
+      <section class="detailedTasks"></section>
     </div>
   </body>
 </html>
