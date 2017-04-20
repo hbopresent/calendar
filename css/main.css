@@ -14,11 +14,14 @@ ul {
   margin: 0;
   padding: 0;
 }
-input:focus {
-  outline: none;
-}
-li {
-  list-style: none;
+input:focus { outline: none; }
+li { list-style: none; }
+.pathElement {
+  stroke: #000;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: transparent;
 }
 
 
@@ -51,9 +54,7 @@ li {
   align-items: center;
   position: relative;
 }
-    .mainDateText {
-      color: #FFF;
-    }
+    .mainDateText { color: #FFF; }
     .number {
       font-size: 8em;
       margin-top: 30px;
@@ -71,7 +72,7 @@ li {
       font-size: 1.5em;
       width: 100%;
       text-align: center;
-      margin-top: 100px;
+      margin-top: 85px;
     }
     .year {
       width: 100%;
@@ -106,18 +107,14 @@ li {
               width: calc(100% / 7);
               text-align: center;
             }
-    .mainCalendar__date {
-      width: 100%;
-    }
+    .mainCalendar__date { width: 100%; }
         .week {
           width: 100%;
           display: flex;
           justify-content: center;
           align-items: center;
         }
-        .firstWeek {
-          width: 100%;
-        }
+        .firstWeek { width: 100%; }
             .date {
               color: #FFF;
               width: calc(100% - (100% / 7));
@@ -127,6 +124,37 @@ li {
               justify-content: center;
               align-items: center;
               cursor: pointer;
+            }
+            .taskDate { position: relative; }
+            .taskDate:after {
+              content: "";
+              display: block;
+              width: 6px;
+              height: 6px;
+              border-radius: 50%;
+              background-color: #000;
+              position: absolute;
+              left: calc((100% - 6px)/2);
+              bottom: 15%;
+            }
+            .focusedDate { position: relative; }
+            .focusedDate:after {
+              content: "";
+              display: block;
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background-color: #FFF;
+              opacity: 0.3;
+            }
+            .today {
+              color: rgb(251, 108, 125);
+            }
+            .focusedToday {
+              color: #FFF;
+              background-color: rgb(251, 108, 125);
             }
 
 
@@ -141,6 +169,38 @@ li {
   width: 100%;
   height: 300px;
   bottom: 0%;
-  background-color: hsl(187, 56%, 48%);
-  opacity: 0.6;
+  overflow: scroll;
+  background-color: #7a7afd;
+  visibility: hidden;
 }
+    .cancelTask {
+      width: 40px;
+      height: 40px;
+      float: right;
+      cursor: pointer;
+    }
+    .taskItem {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+        .taskContent {
+          width: 80%;
+          height: 100%;
+          margin: 0;
+          padding: 15px;
+          font-size: 1.2em;
+        }
+        .taskTime {
+          width: 20%;
+          height: 100%;
+          margin: 0;
+          font-size: 1.2em;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+    .task1 {
+
+    }
