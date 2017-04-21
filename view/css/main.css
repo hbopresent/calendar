@@ -6,6 +6,7 @@ body {
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  background-color: hsl(0, 0%, 0%);
 }
 input,
 ul {
@@ -35,7 +36,7 @@ li { list-style: none; }
 .calendar {
   width: 350px;
   height: 640px;
-  background-color: hsl(0, 0%, 35%);
+  background-color: hsl(58, 65%, 30%);
   position: relative;
 }
 
@@ -120,6 +121,7 @@ li { list-style: none; }
               width: calc(100% - (100% / 7));
               height: 50px;
               font-size: 1rem;
+              font-weight: bold;
               display: flex;
               justify-content: center;
               align-items: center;
@@ -132,7 +134,7 @@ li { list-style: none; }
               width: 6px;
               height: 6px;
               border-radius: 50%;
-              background-color: #000;
+              background-color: #FFF;
               position: absolute;
               left: calc((100% - 6px)/2);
               bottom: 15%;
@@ -150,11 +152,11 @@ li { list-style: none; }
               opacity: 0.3;
             }
             .today {
-              color: rgb(251, 108, 125);
+              color: hsl(148, 100%, 50%);
             }
             .focusedToday {
-              color: #FFF;
-              background-color: rgb(251, 108, 125);
+              /*color: #FFF;
+              background-color: hsl(6, 100%, 70%);*/
             }
 
 
@@ -167,7 +169,7 @@ li { list-style: none; }
 .detailedTasks {
   position: absolute;
   width: 100%;
-  height: 300px;
+  height: 305px;
   bottom: 0%;
   overflow: scroll;
   background-color: #7a7afd;
@@ -178,29 +180,34 @@ li { list-style: none; }
       height: 40px;
       float: right;
       cursor: pointer;
+      margin-bottom: 20px;
     }
-    .taskItem {
+    .taskBoard {
       width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      height: calc(100% - 40px);
+      clear: both;
     }
-        .taskContent {
-          width: 80%;
-          height: 100%;
-          margin: 0;
-          padding: 15px;
-          font-size: 1.2em;
-        }
-        .taskTime {
-          width: 20%;
-          height: 100%;
-          margin: 0;
-          font-size: 1.2em;
+        .taskItem {
+          width: 100%;
           display: flex;
-          justify-content: center;
+          justify-content: space-between;
           align-items: center;
         }
-    .task1 {
-
-    }
+            .taskItem__content {
+              width: 75%;
+              height: 100%;
+              margin: 0;
+              padding: 15px;
+              font-size: 1.2em;
+              word-break: keep-all;
+              line-height: 25px;
+            }
+            .taskItem__time {
+              width: 25%;
+              height: 100%;
+              margin: 0;
+              font-size: 1em;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }

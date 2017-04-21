@@ -3,8 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <title>Calendar</title>
-    <link rel="stylesheet" href="css/normalize.css"/>
-    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="/view/css/normalize.css"/>
+    <link rel="stylesheet" href="/view/css/main.css"/>
+    <script src="/socket.io/socket.io.js"></script>
   </head>
   <body>
     <div class="calendar">
@@ -30,7 +31,7 @@
           <div class="mainCalendar__date">
             <div class="week firstWeek">
               <div class="date"></div>
-              <div class="date taskDate">1</div>
+              <div class="date taskDate" id="date1">1</div>
               <div class="date">2</div>
               <div class="date">3</div>
               <div class="date">4</div>
@@ -47,13 +48,13 @@
               <div class="date">13</div>
             </div>
             <div class="week thirdWeek">
-              <div class="date taskDate">14</div>
+              <div class="date taskDate" id="date14">14</div>
               <div class="date">15</div>
               <div class="date">16</div>
               <div class="date">17</div>
               <div class="date">18</div>
               <div class="date">19</div>
-              <div class="date focusedToday">20</div>
+              <div class="date today">20</div>
             </div>
             <div class="week fourthWeek">
               <div class="date">21</div>
@@ -66,8 +67,8 @@
             </div>
             <div class="week fifthWeek">
               <div class="date">28</div>
-              <div class="date taskDate">29</div>
-              <div class="date taskDate">30</div>
+              <div class="date taskDate" id="date29">29</div>
+              <div class="date taskDate" id="date30">30</div>
               <div class="date">31</div>
               <div class="date"></div>
               <div class="date"></div>
@@ -76,25 +77,15 @@
           </div>
         </div>
       </section>
-      <section class="detailedTasks">
-        <svg class="cancelTask" id="cancelTask">
+      <section class="detailedTasks" id="detailedTasks">
+        <svg class="cancelTask" id="cancelDetailedTasks">
           <path class="pathElement" d="M10 10 L30 30"></path>
           <path class="pathElement" d="M30 10 L10 30"></path>
         </svg>
-        <div class="taskItem task1">
-          <p class="taskContent">have lunch with Tom!!</p>
-          <p class="taskTime">12:30</p>
-        </div>
-        <div class="taskItem task2">
-          <p class="taskContent">
-            Lorem ipsum dolor sit amet, eos suscipit philosophia in, te tractatos intellegat eam.
-            Mandamus mediocrem reprehendunt eum eu, cu pertinax ocurreret his. Usu an legimus petentium, et vis
-          </p>
-          <p class="taskTime">14:30</p>
-        </div>
+        <div class="taskBoard" id="taskBoard"></div>
       </section>
     </div>
 
-    <script src="js/main.js"></script>
+    <script src="/view/js/main.js"></script>
   </body>
 </html>
