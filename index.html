@@ -19,13 +19,13 @@
         <div class="mainCalendar">
           <div class="mainCalendar__week">
             <ul class="weekList">
-              <li class="weekList__date">Sun</li>
-              <li class="weekList__date">Mon</li>
-              <li class="weekList__date">Tue</li>
-              <li class="weekList__date">Wed</li>
-              <li class="weekList__date">Thu</li>
-              <li class="weekList__date">Fri</li>
-              <li class="weekList__date">Sat</li>
+              <li class="weekList__date">SUN</li>
+              <li class="weekList__date">MON</li>
+              <li class="weekList__date">TUE</li>
+              <li class="weekList__date">WED</li>
+              <li class="weekList__date">THU</li>
+              <li class="weekList__date">FRI</li>
+              <li class="weekList__date">SAT</li>
             </ul>
           </div>
           <div class="mainCalendar__date">
@@ -54,7 +54,7 @@
               <div class="date">17</div>
               <div class="date">18</div>
               <div class="date">19</div>
-              <div class="date today">20</div>
+              <div class="date">20</div>
             </div>
             <div class="week fourthWeek">
               <div class="date">21</div>
@@ -78,11 +78,23 @@
         </div>
       </section>
       <section class="detailedTasks" id="detailedTasks">
-        <svg class="cancelTask" id="cancelDetailedTasks">
-          <path class="pathElement" d="M10 10 L30 30"></path>
-          <path class="pathElement" d="M30 10 L10 30"></path>
-        </svg>
+        <div class="addTask" id="addTask"></div>
+        <div class="cancelTask" id="cancelDetailedTasks">
+          <svg class="cancelTaskSvg">
+            <path class="pathElement" d="M10 10 L30 30"></path>
+            <path class="pathElement" d="M30 10 L10 30"></path>
+          </svg>
+        </div>
         <div class="taskBoard" id="taskBoard"></div>
+      </section>
+      <section class="newScheduleForm" id="newScheduleForm">
+        <header class="scheduleHeader">
+          <input type="button" class="cancelNewSchedule" id="cancelNewSchedule" value="cancel"/>
+          <h3 class="formTitle">New Schedule</h3>
+          <input type="button" class="addNewSchedule" id="addNewSchedule" value="add"/>
+        </header>
+        <div contenteditable="true" data-text="Content" class="inputForm schedule"></div>
+        <div contenteditable="true" data-text="Time" class="inputForm scheduleTime"></div>
       </section>
     </div>
 
