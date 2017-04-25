@@ -17,6 +17,8 @@ var calendar = (function(global) {
   var newScheduleForm = document.getElementById("newScheduleForm");
   var cancelNewSchedule = document.getElementById("cancelNewSchedule");
   var addNewSchedule = document.getElementById("addNewSchedule");
+  var scheduleContent = document.getElementById("scheduleContent");
+  var scheduleTime = document.getElementById("scheduleTime");
 
   var bindingHandlers = function() {
     // trigger task date handler
@@ -34,6 +36,7 @@ var calendar = (function(global) {
     }
 
     addTask.addEventListener("click", displayNewScheduleForm);
+    addNewSchedule.addEventListener("click", addNewTask);
     cancelNewSchedule.addEventListener("click", cancelNewScheduleForm);
     cancelDetailedTasks.addEventListener("click", closeDetailedTasks);
   };
@@ -105,12 +108,28 @@ var calendar = (function(global) {
     socket.emit(signal);
   }
 
+  // just create new data on DOM
+  // if you want to store data you should write it to json file
+  function addNewTask() {
+    if(scheduleContent.innerHTML) {
+      var task = {};
+      task.content = scheduleContent.innerHTML;
+      task.time = scheduleTime.innerHTML;
+      createTask(task);
+      cancelNewScheduleForm();
+    }
+  }
+
   function displayNewScheduleForm() {
     newScheduleForm.style.height = "100%";
+    newScheduleForm.style.opacity = 1;
   }
 
   function cancelNewScheduleForm() {
     newScheduleForm.style.height = "0%";
+    newScheduleForm.style.opacity = 0;
+    scheduleContent.removeChild(scheduleContent.firstChild);
+    scheduleTime.removeChild(scheduleTime.firstChild);
   }
 
   var initialize = function() {
