@@ -9,10 +9,11 @@
   </head>
   <body>
     <div class="calendar">
+      <!-- calendar date -->
       <section class="main">
         <div class="mainDate">
           <div class="mainDateText number">20</div>
-          <div class="mainDateText day">TUESDAY</div>
+          <div class="mainDateText day">SATURDAY</div>
           <div class="mainDateText month">MAY</div>
           <div class="mainDateText year">2017</div>
         </div>
@@ -69,7 +70,7 @@
               <div class="date">28</div>
               <div class="date taskDate" id="date29">29</div>
               <div class="date taskDate" id="date30">30</div>
-              <div class="date">31</div>
+              <div class="date" id="date31">31</div>
               <div class="date"></div>
               <div class="date"></div>
               <div class="date"></div>
@@ -77,8 +78,8 @@
           </div>
         </div>
       </section>
+      <!-- detailed tasks -->
       <section class="detailedTasks" id="detailedTasks">
-        <div class="addTask" id="addTask"></div>
         <div class="cancelTask" id="cancelDetailedTasks">
           <svg class="cancelTaskSvg">
             <path class="pathElement" d="M10 10 L30 30"></path>
@@ -87,14 +88,23 @@
         </div>
         <div class="taskBoard" id="taskBoard"></div>
       </section>
+      <!-- table of adding new schedule -->
       <section class="newScheduleForm" id="newScheduleForm">
         <header class="scheduleHeader">
-          <input type="button" class="cancelNewSchedule" id="cancelNewSchedule" value="cancel"/>
-          <input type="button" class="addNewSchedule" id="addNewSchedule" value="add"/>
+          <input type="button" class="cancelNewSchedule" id="cancelNewSchedule" value="CANCEL"/>
+          <input type="button" class="addNewSchedule" id="addNewSchedule" value="ADD"/>
         </header>
-        <div contenteditable="true" data-text="Schedule" class="inputForm scheduleContent" id="scheduleContent"></div>
-        <div contenteditable="true" data-text="Time" class="inputForm scheduleTime" id="scheduleTime"></div>
+        <div class="inputForm">
+          <div contenteditable="true" data-text="SCHEDULE" class="inputFormContent inputForm__schedule" id="scheduleContent"></div>
+        </div>
+        <div class="inputForm">
+          <div contenteditable="true" data-text="MM/DD/YYYY" class="inputFormContent inputForm__date" id="scheduleDate"></div>
+        </div>
+        <div class="inputForm">
+          <div contenteditable="true" data-text="HH:MM" class="inputFormContent inputForm__time" id="scheduleTime"></div>
+        </div>
       </section>
+      <div class="addTask" id="addTask"></div>
     </div>
 
     <script src="/view/js/main.js"></script>

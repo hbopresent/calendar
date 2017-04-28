@@ -21,8 +21,6 @@ io.on("connection", function(socket) {
   });
 });
 
-
-
 app.get("/", function(req, res) {
     res.sendfile("index.html");
 });

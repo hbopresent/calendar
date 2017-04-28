@@ -18,6 +18,7 @@ var calendar = (function(global) {
   var cancelNewSchedule = document.getElementById("cancelNewSchedule");
   var addNewSchedule = document.getElementById("addNewSchedule");
   var scheduleContent = document.getElementById("scheduleContent");
+  var scheduleDate = document.getElementById("scheduleDate");
   var scheduleTime = document.getElementById("scheduleTime");
 
   var bindingHandlers = function() {
@@ -30,9 +31,12 @@ var calendar = (function(global) {
 
     // triggler focused date handler
     for(var index = 0 ; index < dates.length ; index++) {
-      dates[index].addEventListener("click", function() {
-        focusDate(this);
-      });
+      // elements have class date would work when they have text node
+      if(dates[index].innerHTML) {
+        dates[index].addEventListener("click", function() {
+          focusDate(this);
+        });
+      }
     }
 
     addTask.addEventListener("click", displayNewScheduleForm);
@@ -75,8 +79,9 @@ var calendar = (function(global) {
   function showDetailTasks(msg) {
     setTimeout(function() {
       detailedTasks.style.visibility = "visible";
+      // change icon addTask style
+      addTask.classList.add("addTaskInTaskDate");
     }, 100);
-
     for(var i in msg) {
       createTask(msg[i]);
     }
@@ -102,6 +107,8 @@ var calendar = (function(global) {
   function closeDetailedTasks() {
     detailedTasks.style.visibility = "hidden";
     taskBoard.innerHTML = "";
+    // set original icon style
+    addTask.classList.remove("addTaskInTaskDate");
   }
 
   function emitSocket(signal) {
@@ -117,18 +124,24 @@ var calendar = (function(global) {
       task.time = scheduleTime.innerHTML;
       createTask(task);
       cancelNewScheduleForm();
+
+      // this is for demo (just show the dot under the date number)
+      document.getElementById("date31").classList.add("taskDate");
     }
   }
 
   function displayNewScheduleForm() {
     newScheduleForm.style.height = "100%";
     newScheduleForm.style.opacity = 1;
+    addTask.style.visibility = "hidden";
   }
 
   function cancelNewScheduleForm() {
     newScheduleForm.style.height = "0%";
     newScheduleForm.style.opacity = 0;
+    addTask.style.visibility = "visible";
     scheduleContent.removeChild(scheduleContent.firstChild);
+    scheduleDate.removeChild(scheduleDate.firstChild);
     scheduleTime.removeChild(scheduleTime.firstChild);
   }
 

@@ -186,7 +186,7 @@ li { list-style: none; }
       width: 25px;
       height: 25px;
       border-radius: 50%;
-      border: 1px solid hsl(58, 65%, 35%);
+      border: 1px solid hsl(0, 0%, 0%);
       position: absolute;
       top: 10px;
       right: 10px;
@@ -199,10 +199,38 @@ li { list-style: none; }
       display: block;
       width: 15px;
       height: 1px;
-      background-color: hsl(58, 65%, 35%);
+      background-color: hsl(0, 0%, 0%);
       position: absolute;
     }
     .addTask:after {
+      content: "";
+      display: block;
+      width: 1px;
+      height: 15px;
+      background-color: hsl(0, 0%, 0%);
+      position: absolute;
+    }
+    .addTaskInTaskDate {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      border: 1px solid hsl(58, 65%, 35%);
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .addTaskInTaskDate::before {
+      content: "";
+      display: block;
+      width: 15px;
+      height: 1px;
+      background-color: hsl(58, 65%, 35%);
+      position: absolute;
+    }
+    .addTaskInTaskDate::after {
       content: "";
       display: block;
       width: 1px;
@@ -285,7 +313,7 @@ li { list-style: none; }
     .scheduleHeader {
       width: 100%;
       margin-top: 20px;
-      margin-bottom: 180px;
+      margin-bottom: 200px;
       display: flex;
       justify-content: space-around;
       align-items: center;
@@ -301,18 +329,24 @@ li { list-style: none; }
         }
     .inputForm {
       border-bottom: 1px solid hsl(58, 65%, 35%);
-      color: hsl(58, 65%, 35%);
       display: block;
       width: 70%;
       margin-left: auto;
       margin-right: auto;
-      margin-top: 100px;
-      text-align: center;
-      font-size: 2em;
+      margin-top: 130px;
+      position: relative;
     }
-    .inputForm:focus {
-      outline: none;
-    }
-        .scheduleTime {
-          margin-bottom: 70px;
+        .inputFormContent {
+          position: absolute;
+          bottom: 0%;
+          width: 100%;
+          padding-bottom: 3px;
+          text-align: center;
+          font-size: 1.5em;
+          color: hsl(58, 65%, 35%);
+        }
+        .inputForm__schedule:focus,
+        .inputForm__date:focus,
+        .inputForm__time:focus {
+          outline: none;
         }
